@@ -2,9 +2,12 @@ require 'securerandom'
 class Contact
   attr_accessor :name, :phone, :address
   def initialize(name, phone, address)
+    if (phone.match(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/))
     @name = name
     @phone = phone
     @address = address
+    else
+      puts "Incorrect phone"
   end
 end
 
@@ -61,11 +64,11 @@ class Contacts
   end
 end
 
-contact1 = Contact.new( 'Stepan', '123456', 'Stryi' )
-contact2 = Contact.new( 'Bogdan', '456789', 'Manevychi' )
-contact3 = Contact.new( 'Yaro','741852', 'Shors' )
-contact4 = Contact.new( 'Qwerty','789456', 'Da' )
-contact5 = Contact.new( 'Zxcvbn','855203', 'No' )
+contact1 = Contact.new( 'Stepan', '+380638192113', 'Stryi' )
+contact2 = Contact.new( 'Bogdan', '+380972235905', 'Manevychi' )
+contact3 = Contact.new( 'Yaro','+380933361718', 'Shors' )
+contact4 = Contact.new( 'Qwerty','+380984678615', 'Da' )
+contact5 = Contact.new( 'Zxcvbn','+380955588306', 'No' )
 contacts = Contacts.new
 
 add_contact1 = contacts.add(contact1)
@@ -82,7 +85,7 @@ puts contacts.update(add_contact3, contact4)
 puts contacts.list
 
 puts "update_phone"
-puts contacts.update_phone(add_contact1, 888888)
+puts contacts.update_phone(add_contact1, +380632435628)
 puts add_contact1
 puts contacts.list
 
