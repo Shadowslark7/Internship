@@ -12,7 +12,7 @@ CREATE TABLE articles
     user_id SERIAL NOT NULL,
     title varchar(30) NOT NULL,
     content varchar(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW()
+    created_at TIMESTAMP DEFAULT NOW(),
     FOREIGN KEY (user_id) REFERENCES users (id)
     );
 
@@ -43,27 +43,31 @@ VALUES (3, 'Third title', 'amogus');
 
 INSERT INTO comments (user_id, article_id, content)
 VALUES (1, 2, 'Weekend');
-INSERT INTO comments (user_id, article_id, comment_content)
+INSERT INTO comments (user_id, article_id, content)
 VALUES (2, 3, 'dsblf');
-INSERT INTO comments (user_id, article_id, comment_content)
+INSERT INTO comments (user_id, article_id, content)
 VALUES (3, 1, 'No way');
-INSERT INTO comments (user_id, article_id, comment_content)
+INSERT INTO comments (user_id, article_id, content)
 VALUES (1, 2, 'Okey let`s go');
 
 UPDATE users
-SET username = 'Sasha' 
-    password = '123456'
+SET username = 'Sasha', 
+    password = '123456',
     email = 'sasha.m@gmail.com'
 WHERE id = 1;
 
 UPDATE articles
-SET content = 'Good luck' WHERE id = 2;
+SET title = 'Da da da',
+    content = 'Good luck' 
+WHERE id = 2;
 
 UPDATE comments
-SET content = 'Have fun' WHERE article_id = 2 ;
+SET content = 'Have fun' 
+WHERE article_id = 2 ;
 
 UPDATE comments
-SET content = 'Good game' WHERE article_id = 2 ;
+SET content = 'Good game' 
+WHERE article_id = 3;
 
 ALTER TABLE comments 
 RENAME COLUMN content TO comment_content;
@@ -76,11 +80,9 @@ SELECT * FROM users;
 SELECT * FROM articles;
 SELECT * FROM comments;
 
-SELECT COUNT(*) AS sum_articles FROM articles
-WHERE id = 1;
+SELECT COUNT(title) FROM articles
+WHERE user_id = 1;
 
-SELECT email, title, comment_content  FROM comments
-LEFT JOIN users
-ON user_id = users.id
-LEFT JOIN articles
-ON users.id = articles.id;
+SELECT email, comments.content AS comment_content AS article_title FROM comments
+LEFT JOIN users ON comments.user_id = articles.id
+LEFT JOIN articles ON users.id = articles.user_id;
