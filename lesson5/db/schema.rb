@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_16_080716) do
+ActiveRecord::Schema.define(version: 2021_12_28_102818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_12_16_080716) do
   end
 
   create_table "diagnosis_items", force: :cascade do |t|
-    t.string "content"
+    t.string "content", default: "Be healthy", null: false
     t.bigint "physician_id"
     t.bigint "patient_id"
     t.datetime "created_at", precision: 6, null: false
@@ -36,21 +36,21 @@ ActiveRecord::Schema.define(version: 2021_12_16_080716) do
   end
 
   create_table "patients", force: :cascade do |t|
-    t.string "first_name"
+    t.string "first_name", default: "No first name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "second_name"
-    t.integer "age"
-    t.string "email"
+    t.string "last_name", default: "No last name", null: false
+    t.integer "age", default: 1, null: false
+    t.string "email", default: "No email", null: false
   end
 
   create_table "physicians", force: :cascade do |t|
-    t.string "first_name"
+    t.string "first_name", default: "No first name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "last_name"
-    t.string "phone_number"
-    t.string "level"
+    t.string "last_name", default: "No last name", null: false
+    t.string "phone_number", default: "+38000000000", null: false
+    t.string "level", default: "junior", null: false
   end
 
 end
