@@ -1,0 +1,20 @@
+<div class="row justify-content-center">
+    <div class="col-5">
+        <div class="card">
+            <div class="card-header">
+            Physicians#<%= @physician.id%>
+            </div>
+            <div class="card-body">
+                <p><%=@physician.first_name %></p>
+                <p><%=@physician.last_name %></p>
+                <p><%=@physician.phone_number %></p>
+                <p><%=@physician.level %></p>
+                <div class=" card-footer">
+                <%= link_to "Edit", edit_physician_path(@physician), :class => 'btn btn-warning m-1 ' %>
+                <%= link_to "Delete", physician_path(@physician),
+                method: :delete, data: {confirm: "Do you want to remove a physician?"},:class => 'btn btn-danger' %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="row justify-content-center">
+  <div class="col-5">
+    <table class="table my-2">
+      <thead>
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        </tr>
+        </thead>
+        <tbody>
+          <% @patient.each do |patient| %>
+          <tr>
+            <td><%= link_to patient.id, patient %></td>
+            <td><%= patient.first_name %></td>
+            <td><%= patient.last_name %></td>
+            <td><%= patient.email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <%= link_to "New Patient", new_patient_path(@patient), class: "btn btn-success "%>
+  </div>
+</div>
+
+
+
+

@@ -14,6 +14,32 @@
   </head>
 
   <body>
-    <%= yield %>
+  
+  <nav class="navbar navbar-expand-sm navbar-dark bg-success">
+      <a class="navbar-brand mx-5" href="#">Hospital</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample03">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= link_to "Patient", patients_path, :class=>"nav-link"%>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Physicians", physicians_path, :class=>"nav-link"%>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Appointmants</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Diagnosis Item</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
