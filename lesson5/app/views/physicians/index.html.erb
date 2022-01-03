@@ -1,0 +1,27 @@
+<div class="row justify-content-center">
+  <div class="col-5">
+    <table class="table my-2">
+      <thead>
+      <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Level</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @physician.each do |physician| %>
+        <tr>
+          <td><%= link_to physician.id, physician %></td>
+          <td><%= physician.first_name %></td>
+          <td><%= physician.last_name %></td>
+          <td><%= physician.phone_number %></td>
+          <td><%= physician.level %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to "New Physician", new_physician_path(@physician), class: "btn btn-success"%>
+  </div>
+</div>

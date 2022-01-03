@@ -1,0 +1,17 @@
+<%= form_with model: @physician do |form| %>
+  <div>
+  <p>First Name</p>
+  <%= form.text_field :first_name %><br>
+
+  <p>Last Name</p>
+  <%= form.text_field :last_name %><br>
+
+  <p>Phone Number</p>
+  <%= form.number_field :phone_number %><br>
+
+  <p>Skill Level</p>
+  <%= form.text_field :level %>
+
+  <%= form.submit %>
+  </div>
+<% end %>

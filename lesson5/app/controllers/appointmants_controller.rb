@@ -1,17 +1,17 @@
-class PatientsController < ApplicationController
+class AppointmantsController < ApplicationController
   def index
 
   end
 
-  def show
+  def create
 
   end
 
-  def new
+  def show
   
   end
 
-  def create
+  def new
 
   end
 
@@ -22,9 +22,9 @@ class PatientsController < ApplicationController
   def update
 
   end
-
-  def destroy
-
-  end
   
+  def destroy
+  
+  end
+
 end
