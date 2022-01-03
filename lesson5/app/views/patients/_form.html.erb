@@ -1,16 +1,7 @@
-<%= form_with model: @patient do |form| %>
-  <div class ="mb-5">
-  <p>First Name</p>
-  <%= form.text_field :first_name %><br>
-
-  <p>Last Name</p>
-  <%= form.text_field :last_name %><br>
-
-  <p>Age</p>
-  <%= form.number_field :age %><br>
-
-  <p>Email</p>
-  <%= form.email_field :email %>
-  </div>
-  <%= form.submit(class: "btn btn-success") %>
+<%= simple_form_for @patient do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :age %>
+  <%= f.input :email %>
+  <%= f.button :submit, class: "btn btn-success my-2" %>
 <% end %>

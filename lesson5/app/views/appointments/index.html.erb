@@ -1,0 +1,25 @@
+<div class="row justify-content-center">
+  <div class="col-5">
+    <table class="table my-2">
+      <thead>
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Data</th>
+        <th scope="col">Physician</th>
+        <th scope="col">Patient</th>
+        </tr>
+        </thead>
+        <tbody>
+          <% @appointments.each do |appointment| %>
+          <tr>
+            <td><%= link_to appointment.id, appointment %></td>
+            <td><%= appointment.appointment_date %></td>
+            <td><%= appointment.physician.last_name %></td>
+            <td><%= appointment.patient.last_name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <%= link_to "New Appointment", new_appointment_path(@appointment), class: "btn btn-success "%>
+  </div>
+</div>

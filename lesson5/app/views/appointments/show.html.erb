@@ -1,0 +1,19 @@
+<div class="row justify-content-center">
+    <div class="col-5">
+        <div class="card">
+            <div class="card-header">
+            Diagnosis item#<%= @appointment.id%>
+            </div>
+            <div class="card-body">
+                <p><%=@appointment.appointment_date %></p>
+                <p><%=@appointment.physician.last_name %></p>
+                <p><%=@appointment.patient.last_name %></p>
+                <div class=" card-footer">
+                <%= link_to "Edit", edit_appointment_path(@appointment), :class => 'btn btn-warning m-1 ' %>
+                <%= link_to "Delete", appointment_path(@appointment),
+                method: :delete, data: {confirm: "Do you want to remove a appointment?"},:class => 'btn btn-danger' %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
