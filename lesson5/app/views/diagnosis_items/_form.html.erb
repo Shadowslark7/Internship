@@ -1,0 +1,6 @@
+<%= simple_form_for @diagnosis_item do |f| %>
+  <%= f.input :content %><br>
+  <%= f.collection_select :physician_id, @physician, :id, :last_name %>
+  <%= f.collection_select :patient_id, @patient, :id, :last_name %><br>
+  <%= f.button :submit, class: "btn btn-success my-2" %>
+<% end %>
