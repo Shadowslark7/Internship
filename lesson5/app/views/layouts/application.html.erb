@@ -16,30 +16,29 @@
   <body>
   
   <nav class="navbar navbar-expand-sm navbar-dark bg-success">
-      <a class="navbar-brand mx-5" href="#"><%= link_to "Hospital", root_path, :class=>"nav-link"%>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation"></a>
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
+      <%= link_to "Hospital", root_path, :class=>"nav-link mx-5" %>
       <div class="collapse navbar-collapse" id="navbarsExample03">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <%= link_to "Patient", patients_path, :class=>"nav-link"%>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Physicians", physicians_path, :class=>"nav-link"%>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Appointments", appointments_path, :class=>"nav-link"%>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Diagnosis Item", diagnosis_items_path, :class=>"nav-link"%>
-          </li>
+        <ul class="navbar-nav">
+          <li><%= link_to "Patient", patients_path, :class=>"nav-link" %></li>
+          <li><%= link_to "Physicians", physicians_path, :class=>"nav-link" %></li>
+          <li><%= link_to "Appointments", appointments_path, :class=>"nav-link" %></li>
+          <li><%= link_to "Diagnosis Item", diagnosis_items_path, :class=>"nav-link" %></li>
+          <ul class="navbar-nav position-absolute top-5 end-0">
+            <% if user_signed_in?%>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, :class=>"nav-link" %>
+              <%= link_to "Edit Profile", edit_user_registration_path, :class=>"nav-link" %>
+            <% else %>
+              <%= link_to "Sign up", new_user_registration_path, :class=>"nav-link" %>
+              <%= link_to "Log in", new_user_session_path, :class=>"nav-link" %>
+            <% end %>
+          </ul>
         </ul>
       </div>
     </nav>
     <div class="container">
       <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
     </div>
   </body>
 </html>
