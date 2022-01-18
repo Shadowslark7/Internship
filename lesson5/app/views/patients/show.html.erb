@@ -1,19 +1,23 @@
 <div class="row justify-content-center">
-    <div class="col-5">
-        <div class="card">
-            <div class="card-header">
-            Patient#<%= @patient.id%>
-            </div>
+  <div class="col-5">
+    <div class="card">
+      <div class="card-header">
+        Patient#<%= @patient.id%>
+          </div>
             <div class="card-body">
-                <p><%=@patient.first_name %></p>
-                <p><%=@patient.last_name %></p>
-                <p><%=@patient.age %></p>
-                <p><%=@patient.email %></p>
-                <div class=" card-footer">
+              <p><%=@patient.first_name %></p>
+              <p><%=@patient.last_name %></p>
+              <p><%=@patient.age %></p>
+              <p><%=@patient.email %></p>
+              <div class=" card-footer">
+              <% if can? :edit, Patient %>
                 <%= link_to "Edit", edit_patient_path(@patient), :class => 'btn btn-warning m-1 ' %>
+              <% end %>
+              <% if can? :destroy, Patient %>
                 <%= link_to "Delete", patient_path(@patient),
                 method: :delete, data: {confirm: "Do you want to remove a patient?"},:class => 'btn btn-danger' %>
-                </div>
+              <% end %>
+              </div>
             </div>
         </div>
     </div>

@@ -20,6 +20,8 @@
         <% end %>
       </tbody>
     </table>
-  <%= link_to "New Diagnosis item", new_diagnosis_item_path(@diagnosis_item), class: "btn btn-success "%>
+  <% if can? :create, DiagnosisItem %>
+    <%= link_to "New Diagnosis item", new_diagnosis_item_path(@diagnosis_item), class: "btn btn-success "%>
+  <% end %>
   </div>
 </div>

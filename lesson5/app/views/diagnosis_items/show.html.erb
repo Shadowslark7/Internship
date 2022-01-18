@@ -1,19 +1,23 @@
 <div class="row justify-content-center">
-    <div class="col-5">
-        <div class="card">
-            <div class="card-header">
-            Diagnosis item#<%= @diagnosis_item.id%>
-            </div>
-            <div class="card-body">
-                <p><%=@diagnosis_item.content %></p>
-                <p><%=@diagnosis_item.physician.last_name %></p>
-                <p><%=@diagnosis_item.patient.last_name %></p>
-                <div class=" card-footer">
-                <%= link_to "Edit", edit_diagnosis_item_path(@diagnosis_item), :class => 'btn btn-warning m-1 ' %>
-                <%= link_to "Delete", diagnosis_item_path(@diagnosis_item),
-                method: :delete, data: {confirm: "Do you want to remove a diagnosis_item?"},:class => 'btn btn-danger' %>
-                </div>
-            </div>
+  <div class="col-5">
+    <div class="card">
+      <div class="card-header">
+        Diagnosis item#<%= @diagnosis_item.id%>
+      </div>
+        <div class="card-body">
+          <p><%=@diagnosis_item.content %></p>
+          <p><%=@diagnosis_item.physician.last_name %></p>
+          <p><%=@diagnosis_item.patient.last_name %></p>
+          <div class=" card-footer">
+            <% if can? :edit, DiagnosisItem %>
+              <%= link_to "Edit", edit_diagnosis_item_path(@diagnosis_item), :class => 'btn btn-warning m-1 ' %>
+            <% end %>
+            <% if can? :destroy, DiagnosisItem %>
+              <%= link_to "Delete", diagnosis_item_path(@diagnosis_item),
+              method: :delete, data: {confirm: "Do you want to remove a diagnosis_item?"},:class => 'btn btn-danger' %>
+            <% end %>
+          </div>
         </div>
+      </div>
     </div>
 </div>

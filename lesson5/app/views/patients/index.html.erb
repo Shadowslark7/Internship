@@ -10,7 +10,7 @@
         </tr>
         </thead>
         <tbody>
-          <% @patient.each do |patient| %>
+          <% @patients.each do |patient| %>
           <tr>
             <td><%= link_to patient.id, patient %></td>
             <td><%= patient.first_name %></td>
@@ -20,7 +20,9 @@
         <% end %>
       </tbody>
     </table>
-  <%= link_to "New Patient", new_patient_path(@patient), class: "btn btn-success "%>
+    <% if can? :create, Patient %>
+      <%= link_to "New Patient", new_patient_path(@patient), class: "btn btn-success" %>
+    <% end %>
   </div>
 </div>
 
