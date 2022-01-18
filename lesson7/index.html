@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="main.css">
+  <title>Forms</title>
+</head>
+<body>
+<div class="container">
+  <form action="">
+  <div class="form-title">
+    <h1>Information &#129299</h1>
+    <div class="buttons">
+      <button class="reset" type="reset">
+        <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M2.38894 10C2.38894 8.154 3.08568 6.458 4.24108 5.103L16.54 16.312C15.0533 17.366 13.1924 18 11.1668 18C6.32693 18 2.38894 14.411 2.38894 10ZM19.9448 10C19.9448 11.846 19.248 13.542 18.0926 14.897L5.79367 3.688C7.28043 2.634 9.14135 2 11.1669 2C16.0068 2 19.9448 5.589 19.9448 10ZM11.1669 0C5.11667 0 0.194458 4.486 0.194458 10C0.194458 15.514 5.11667 20 11.1669 20C17.217 20 22.1392 15.514 22.1392 10C22.1392 4.486 17.217 0 11.1669 0Z" fill="#757D8A"/>
+          </svg> 
+      </button>
+      <button class="submit" type="submit">Confirm</button>
+    </div>
+  </div>
+  <div class="form-main">
+    <div class="registration">
+      <h2> User Information</h2>
+      <p>Enter the  information below to register. You can change it anytime you want.</p>
+        <label for="email">Email address</label><br>
+        <input type="email" id= "email" name="email" class="email"><br>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password" minlength="5" class="password" ><br>
+        <label for="phone">Phone number</label><br>
+        <input type="tel" name="phone" id="phone" class="phone" ><br>
+        <fieldset>
+          <legend>Full name</legend>
+          <input type="text" id="first-name" placeholder="First Name">
+          <input type="text" id="second-name" placeholder="Second Name">
+          <label for="time">What time is it</label>
+          <input type="time" id="time" ><br>
+          <label for="like">How much do you like forms?</label>
+          <input type="range" id="like" >
+        </fieldset> 
+        <fieldset>
+          <p>Select your languages</p>
+        <div class="select-languages">
+          <div>
+          <input type="checkbox"><label>English</label><br>
+          </div>
+          <div>
+          <input type="checkbox"><label>Ukrainian</label><br>
+          </div>
+          <div>
+          <input type="checkbox"><label>Spanish</label>
+          </div>
+        </div>
+          <p>Hourly rate</p>
+        <div class="hourly-rata">
+          <div> 
+          <div><input type="checkbox"><label>$10-20</label><br></div>
+          <div><input type="checkbox"><label>$20-40</label><br></div>
+        </div>
+        <div>
+          <div><input type="checkbox"><label>$40-80</label><br></div>
+          <div><input type="checkbox"><label>> $80</label></div>
+        </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Address</legend>
+        <label for="city"></label>
+          <input type="text" name="state" id="state" placeholder="State" >
+          <input type="text" name="city" id="city" placeholder="City" >
+          <input type="number" pattern="[0-9]{5}" placeholder="Postal code" min=777 >
+          <input type="text" name="street" id="street" placeholder="Street" >
+      </fieldset>
+      <fieldset class="color-bd">
+        <label for="color">Pick your favorite color:</label>
+        <input type="color" ><br>
+        <label for="date">Birth date:</label>
+        <input type="date" >
+      </fieldset>
+    </div>
+    <div class="interest">
+      <label for="photo">Profile photo</label>
+      <input type="file" name="photo" accept="image/png" >
+          <label for="pet-select">Choose your main interest</label>
+          <select name="pets" id="pet-select">
+              <option value="Science">Science</option>
+              <option value="Art">Art 🎭</option>
+              <option value="Politics">Politics 🗳️</option>
+              <option value="Sport">Sport ⚽</option>
+              <option value="Games">Games 🎮</option>
+              <option value="Animals">Animals 🐾</option>
+              <option value="Health">Health 🏥</option>
+              <option value="Business">Business 👔</option>
+          </select>
+          <label for="story">Describe yourself</label>
+          <textarea id="story" name="story" rows="5" cols="33" placeholder=" I’m the best person in the world..."></textarea>
+    </div>
+  </div>
+  </form>
+</div>
+<script>
+  document.querySelector('form').addEventListener('submit', function(event){
+    event.preventDefault()
+    console.log(document.getElementById('email').value);
+  })
+  document.querySelector('form').addEventListener('submit', function(event){
+    event.preventDefault()
+    console.log(document.getElementById('password').value);
+  })
+  document.querySelector('form').addEventListener('submit', function(event){
+    event.preventDefault()
+    console.log(document.getElementById('phone').value);
+  })
+
+</script>
+</body>
+</html>
