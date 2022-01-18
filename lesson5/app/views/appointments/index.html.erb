@@ -20,6 +20,8 @@
         <% end %>
       </tbody>
     </table>
-  <%= link_to "New Appointment", new_appointment_path(@appointment), class: "btn btn-success "%>
+    <% if can? :create, Appointment %>
+      <%= link_to "New Appointment", new_appointment_path(@appointment), class: "btn btn-success "%>
+    <% end %> 
   </div>
 </div>

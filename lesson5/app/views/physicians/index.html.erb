@@ -11,7 +11,7 @@
       </tr>
       </thead>
       <tbody>
-      <% @physician.each do |physician| %>
+      <% @physicians.each do |physician| %>
         <tr>
           <td><%= link_to physician.id, physician %></td>
           <td><%= physician.first_name %></td>
@@ -22,6 +22,8 @@
         <% end %>
       </tbody>
     </table>
-    <%= link_to "New Physician", new_physician_path(@physician), class: "btn btn-success"%>
+      <% if can? :create, Physician %>
+        <%= link_to "New Physician", new_physician_path(@physician), class: "btn btn-success"%>
+      <% end %>
   </div>
 </div>
