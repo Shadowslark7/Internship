@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-  <div class="col-5">
+  <div class="col-6">
     <table class="table my-2">
       <thead>
         <tr>
@@ -16,6 +16,19 @@
             <td><%= patient.first_name %></td>
             <td><%= patient.last_name %></td>
             <td><%= patient.email %></td>
+            <td>
+              <% if can? :read, DiagnosisItem %>
+              <p>
+                <button class="btn btn-outline-success lol"  id = "<%= patient.id %>"  type="button" data-bs-toggle="collapse" data-bs-target="#id<%= patient.id %>" aria-expanded="false" aria-controls="id<%= patient.id %>">
+                        Show diagnosis items
+                </button>
+              </p>
+              <div class="collapse load" id="id<%= patient.id %>">
+                <div class="card card-body", id="show-items<%= patient.id %>">
+                </div>
+              </div>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>

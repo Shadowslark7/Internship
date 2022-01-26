@@ -1,5 +1,15 @@
 class DiagnosisItemsController < ApplicationController
   load_and_authorize_resource
+
+  def index
+    respond_to do |format|
+      format.html
+      format.json do
+        @diagnosis_item = DiagnosisItem.where(patient_id: params[:patient_id])
+        render json: @diagnosis_item
+      end
+    end
+  end
   
   def create
     if @diagnosis_item.save
